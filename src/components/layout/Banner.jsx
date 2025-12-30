@@ -4,6 +4,16 @@ import { UI_TEXT } from "../../constants/Strings"
 import { TMDB_BASE_URL } from "../../constants/api"
 
 function Banner({ movie }) {
+    const handlePlay = () => {
+    console.log("Play movie:", movie.title);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handlePlay();
+    }
+  };
     return(
         <div className="banner"
         style={{backgroundImage: `url(${TMDB_BASE_URL}/original/${movie.backdrop_path})`}}
@@ -11,7 +21,16 @@ function Banner({ movie }) {
             <div className="banner-content">
                 <h1>{movie.title || movie.name}</h1>
                     <p>{movie.overview}</p>
-                    <button className="play-btn"><span><SlControlPlay/>{UI_TEXT.PLAY_NOW}</span></button>
+                <button 
+                    tabIndex={0}
+                    role='button'
+                    onClick={handlePlay}
+                    onKeyDown={handleKeyDown}
+                    className="play-btn"
+                    aria-label='play movie'
+                    >
+                    <span><SlControlPlay/>{UI_TEXT.PLAY_NOW}</span>
+                </button>
             </div>
         </div>
     )

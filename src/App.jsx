@@ -53,10 +53,25 @@ function App() {
   return (
     <Fragment>
       <Navbar />
-
-      {loading && <p style={{ color: "white" }}>Loading...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
+    <main id="main-content">
+      {loading && (
+        <p 
+          style={{ color: "white" }}
+          tabIndex={0}
+          aria-live="polite"
+        >
+          Loading...
+        </p>
+    )}
+      {error && (
+       <p 
+       style={{ color: "red" }}
+       tabIndex={0}
+       role="alert"
+       >
+        {error}
+      </p>
+    )}
       {!error && bannerMovie && <Banner movie={bannerMovie} />}
 
       {!error && (
@@ -66,6 +81,7 @@ function App() {
           <MovieRow title={UI_TEXT.UPCOMING_MOVIES} movies={movies} />
         </>
       )}
+    </main>
     </Fragment>
   );
 }

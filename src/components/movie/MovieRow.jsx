@@ -14,9 +14,18 @@ function MovieRow({ title, movies }) {
                   className="poster"
                   src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
                   alt={movie.title || movie.name}
+                  tabIndex={0}
+                  role="button"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      console.log("Selected Successfully:", movie.title)
+                    }
+                  }}
+                  onClick={() => 
+                    console.log("Clicked Successfully:", movie.title)
+                  }
                 />
-
-                <p className="movie-name">
+               <p className="movie-name">
                   {movie.title || movie.name}
                 </p>
               </div>
