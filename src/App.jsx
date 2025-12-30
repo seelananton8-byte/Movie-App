@@ -24,10 +24,10 @@ function App() {
 
       const res = await fetch(
         `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`
-      );
+      )
 
       if (!res.ok) {
-        throw new Error(`API Error: ${res.status}`);
+        throw new Error(`API Fetching Error: ${res.status}`);
       }
 
       const data = await res.json();
