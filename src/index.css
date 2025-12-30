@@ -31,6 +31,7 @@ body {
     margin-left: auto;
     margin-right: 120px;
     padding: 0;
+    cursor: pointer;
 }
 .menu li {
     display: flex;
