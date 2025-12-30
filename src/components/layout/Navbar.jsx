@@ -12,8 +12,11 @@ function Navbar() {
                 <li><span className="nav-text">PREMIUM</span></li>
             </ul>
 
-            <span className="nav-text"><CiSearch/></span><span className="divider">|</span>
-            <span className="nav-text">&#127757;</span>
+            <span className="nav-text"><CiSearch/></span>
+            <span className="divider">|</span>
+            <span className="nav-text">
+                <span className="world-emoji">🌍</span>
+            </span>
             <span className="divider" style={{marginRight: "10px", color: "white"}}>EN <GoChevronDown/></span>
             <button className="signin">Sign In</button>
         </nav>

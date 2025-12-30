@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useState } from "react"
-import Navbar from "./Navbar"
-import Banner from "./Banner"
-import MovieRow from "./MovieRow"
-import Button from "./Button"
+import Navbar from "./components/layout/Navbar"
+import Banner from "./components/layout/Banner"
+import MovieRow from "./components/movie/MovieRow"
+import Button from "./components/ui/Button"
 
-const API_KEY = "eae94bbe3b15fcedc7ddf1ff309939df"
+const apiKey = import.meta.env.VITE_API_KEY;
+
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -16,7 +17,7 @@ function App() {
 
   async function fetchMovies() {
     const response = await fetch(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`
     )
     const data = await response.json()
     setMovies(data.results)
