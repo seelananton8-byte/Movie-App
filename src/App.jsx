@@ -3,6 +3,8 @@ import Navbar from "./components/layout/Navbar"
 import Banner from "./components/layout/Banner"
 import MovieRow from "./components/movie/MovieRow"
 import Button from "./components/ui/Button"
+import { UI_TEXT } from "./constants/Strings"
+import { TMDB_IMAGE_URL } from "./constants/api"
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -23,7 +25,7 @@ function App() {
       setError(null);
 
       const res = await fetch(
-        `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`
+        `${TMDB_IMAGE_URL}/trending/all/day?api_key=${apiKey}`
       )
 
       if (!res.ok) {
@@ -59,11 +61,9 @@ function App() {
 
       {!error && (
         <>
-          <p style={{ color: "yellowgreen", marginLeft: "20px", paddingTop: "30px" }}>
-            ONLINE STREAMING
-          </p>
+          <p className="online-streaming-text">{UI_TEXT.ONLINE_STREAMING}</p>
           <Button />
-          <MovieRow title="Upcoming Movies" movies={movies} />
+          <MovieRow title={UI_TEXT.UPCOMING_MOVIES} movies={movies} />
         </>
       )}
     </Fragment>

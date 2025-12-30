@@ -37,12 +37,19 @@ body {
     display: flex;
     align-items: center;
 }
-
+.menu li a{
+    color: gold;
+}
+.menu li a:hover{
+    color: red;
+}
+.menu li a:hover::after{
+    color: blue;
+}
 .nav-text {
     margin-right: 20px;
     filter: brightness(1.5);
 }
-
 .divider {
     color: #aaa;
 }
@@ -60,7 +67,6 @@ body {
     background: yellowgreen;
     color: black;
 }
-
 /* BANNER */
 .banner {
     height: 80vh;
@@ -151,6 +157,12 @@ body {
     color: white;
     cursor: pointer;
 }
+.online-streaming-text{
+    color: yellowgreen;
+    margin-left: 20px;
+    padding-top: 30px;
+}
+
 
 
 

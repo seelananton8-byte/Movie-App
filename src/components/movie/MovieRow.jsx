@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function MovieRow({ title, movies }) {
   return (
     <div className="row">
@@ -24,5 +26,15 @@ function MovieRow({ title, movies }) {
     </div>
   );
 }
-
+MovieRow.PropTypes = {
+   title: PropTypes.string.isRequired,
+   movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string,
+      name: PropTypes.string,
+      poster_path: PropTypes.string,
+    })
+   ).isRequired
+}
 export default MovieRow;
